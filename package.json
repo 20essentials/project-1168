@@ -1,0 +1,20 @@
+{
+  "name": "my-project",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "pnpm gh-pages -d dist/"
+  },
+  "dependencies": {
+    "astro": "5.13.2",
+    "tweakpane": "^4.0.5"
+  },
+  "devDependencies": {
+    "@tweakpane/core": "^2.0.5",
+    "gh-pages": "6.3.0"
+  }
+}

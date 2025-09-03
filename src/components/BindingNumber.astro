@@ -1,0 +1,32 @@
+<section class='am-section binding-number-container'>
+  <h2 class='title-of-section'>#1</h2>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  const container = $('.binding-number-container') as HTMLElement;
+  const PARAMS = {
+    Number: 0.5,
+    Text: 'Hello'
+  };
+  const pane = new Pane({ container });
+  pane.element.classList.add('my-pane');
+  pane.addBinding(PARAMS, 'Number');
+  pane.addBinding(PARAMS, 'Text');
+</script>
+
+<style>
+  .binding-number-container {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    border-block: 0.1vmax solid #fffa;
+
+    .my-pane {
+      width: fit-content;
+    }
+  }
+</style>

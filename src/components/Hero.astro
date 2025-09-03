@@ -1,0 +1,87 @@
+<section class="am-hero">
+  <div class='scene'>
+    <div class='layeredText'>
+      <span>TweakPane</span>
+      <div class='layers' aria-hidden='true'>
+        <div class='layer' style='--i: 1;'>TweakPane</div>
+        <div class='layer' style='--i: 2;'>TweakPane</div>
+        <div class='layer' style='--i: 3;'>TweakPane</div>
+        <div class='layer' style='--i: 4;'>TweakPane</div>
+        <div class='layer' style='--i: 5;'>TweakPane</div>
+        <div class='layer' style='--i: 6;'>TweakPane</div>
+        <div class='layer' style='--i: 7;'>TweakPane</div>
+        <div class='layer' style='--i: 8;'>TweakPane</div>
+        <div class='layer' style='--i: 9;'>TweakPane</div>
+        <div class='layer' style='--i: 10;'>TweakPane</div>
+        <div class='layer' style='--i: 11;'>TweakPane</div>
+        <div class='layer' style='--i: 12;'>TweakPane</div>
+        <div class='layer' style='--i: 13;'>TweakPane</div>
+        <div class='layer' style='--i: 14;'>TweakPane</div>
+        <div class='layer' style='--i: 15;'>TweakPane</div>
+        <div class='layer' style='--i: 16;'>TweakPane</div>
+        <div class='layer' style='--i: 17;'>TweakPane</div>
+        <div class='layer' style='--i: 18;'>TweakPane</div>
+        <div class='layer' style='--i: 19;'>TweakPane</div>
+        <div class='layer' style='--i: 20;'>TweakPane</div>
+        <div class='layer' style='--i: 21;'>TweakPane</div>
+        <div class='layer' style='--i: 22;'>TweakPane</div>
+        <div class='layer' style='--i: 23;'>TweakPane</div>
+        <div class='layer' style='--i: 24;'>TweakPane</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .am-hero {
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+  }
+
+  .scene {
+    perspective: 26.04vmax;
+    
+    * {
+      font-size: 5vmax;
+      transform-style: preserve-3d;
+    }
+  }
+
+  .layeredText {
+    --layers-count: 24;
+    --layer-offset: 0.13vmax;
+    position: relative;
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+    transform: rotateX(30deg);
+
+    span {
+      color: black;
+      text-shadow: 0 0 0.10vmax #003;
+    }
+
+    .layers,
+    .layer {
+      position: absolute;
+      inset: 0;
+    }
+
+    .layer {
+      --n: calc(var(--i) / var(--layers-count));
+      color: hsl(200 30% calc(var(--n) * 100%));
+      animation: sloping 3s infinite ease-in-out alternate;
+    }
+  }
+
+  @keyframes sloping {
+    from {
+      transform: translateZ(calc(var(--i) * var(--layer-offset)))
+        rotateY(calc(var(--n) * 10deg));
+    }
+    to {
+      transform: translateZ(calc(var(--i) * var(--layer-offset)))
+        rotateY(calc(var(--n) * -10deg));
+    }
+  }
+</style>
