@@ -1,0 +1,23 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `binding-range-with-step`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#3</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  const container = $('.binding-range-with-step') as HTMLElement;
+  const PARAMS = {
+    kg: 0.5,
+    items: 10
+  };
+  const pane = new Pane({ container });
+  pane.element.classList.add('my-pane');
+  pane.addBinding(PARAMS, 'kg', { step: 0.1 });
+  pane.addBinding(PARAMS, 'items', { min: 0, max: 100, step: 10 });
+</script>
