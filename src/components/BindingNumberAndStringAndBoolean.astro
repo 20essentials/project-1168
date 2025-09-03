@@ -1,7 +1,7 @@
 ---
 import { getUrlOfTheComponent } from '@/utils/functions';
 const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
-const containerClassName = `binding-number-container-and-text`
+const containerClassName = `container-binding-number-and-string-and-boolean`;
 ---
 
 <section class=`am-section ${containerClassName}`>
@@ -11,13 +11,17 @@ const containerClassName = `binding-number-container-and-text`
 <script>
   import { $ } from '@/utils/functions';
   import { Pane } from 'tweakpane';
-  const container = $('.binding-number-container-and-text') as HTMLElement;
+  const container = $(
+    '.container-binding-number-and-string-and-boolean'
+  ) as HTMLElement;
   const PARAMS = {
     Number: 0.5,
-    Text: 'Hello'
+    Text: 'Hello',
+    Update: true
   };
   const pane = new Pane({ container });
   pane.element.classList.add('my-pane');
   pane.addBinding(PARAMS, 'Number');
   pane.addBinding(PARAMS, 'Text');
+  pane.addBinding(PARAMS, 'Update');
 </script>

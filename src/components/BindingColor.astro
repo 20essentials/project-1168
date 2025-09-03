@@ -1,0 +1,27 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-binding-number-and-string-and-boolean`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#6</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  const container = $(
+    '.container-binding-number-and-string-and-boolean'
+  ) as HTMLElement;
+  const PARAMS = {
+    Number: 0.5,
+    Text: 'Hello',
+    Update: true
+  };
+  const pane = new Pane({ container });
+  pane.element.classList.add('my-pane');
+  pane.addBinding(PARAMS, 'Number');
+  pane.addBinding(PARAMS, 'Text');
+  pane.addBinding(PARAMS, 'Update');
+</script>
