@@ -1,11 +1,17 @@
-<section class='am-section binding-number-container'>
-  <h2 class='title-of-section'>#1</h2>
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `binding-number-container-and-text`
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#1</a>
 </section>
 
 <script>
   import { $ } from '@/utils/functions';
   import { Pane } from 'tweakpane';
-  const container = $('.binding-number-container') as HTMLElement;
+  const container = $('.binding-number-container-and-text') as HTMLElement;
   const PARAMS = {
     Number: 0.5,
     Text: 'Hello'
@@ -17,7 +23,7 @@
 </script>
 
 <style>
-  .binding-number-container {
+  .binding-number-container-and-text {
     height: 100vh;
     position: relative;
     display: flex;

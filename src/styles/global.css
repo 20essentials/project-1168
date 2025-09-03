@@ -60,6 +60,8 @@ h5 {
 }
 
 .title-of-section {
+  font-family: 'AnotherDanger';
+  text-decoration: none;
   position: absolute;
   bottom: 3vmax;
   left: 3vmax;
