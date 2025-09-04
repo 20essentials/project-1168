@@ -1,0 +1,33 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-folder`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#9</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  const container = $('.container-folder') as HTMLElement;
+  const PARAMS = {
+    speed: 0.5,
+    acceleration: 0.1,
+    randomness: 0.2
+  }
+  const pane = new Pane({ container, title: 'Folders' });
+  pane.element.classList.add('my-pane');
+  const f1 = pane.addFolder({
+    title: 'Basic'
+  });
+  f1.addBinding(PARAMS, 'speed');
+
+  const f2 = pane.addFolder({
+    title: 'Advanced',
+    expanded: false 
+  });
+  f2.addBinding(PARAMS, 'acceleration');
+  f2.addBinding(PARAMS, 'randomness');
+</script>
