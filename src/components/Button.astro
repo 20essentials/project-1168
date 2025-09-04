@@ -1,0 +1,26 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-button`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#10</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  const container = $('.container-button') as HTMLElement;
+  const pane = new Pane({ container });
+  pane.element.classList.add('my-pane');
+  const btn = pane.addButton({
+    title: 'Increment',
+    label: 'counter'
+  });
+
+  let counter = 0;
+  btn.on('click', () => {
+    prompt(`${(counter += 1)}`);
+  });
+</script>
