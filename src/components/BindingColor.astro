@@ -1,7 +1,7 @@
 ---
 import { getUrlOfTheComponent } from '@/utils/functions';
 const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
-const containerClassName = `container-binding-number-and-string-and-boolean`;
+const containerClassName = `container-binding-color`;
 ---
 
 <section class=`am-section ${containerClassName}`>
@@ -11,17 +11,14 @@ const containerClassName = `container-binding-number-and-string-and-boolean`;
 <script>
   import { $ } from '@/utils/functions';
   import { Pane } from 'tweakpane';
-  const container = $(
-    '.container-binding-number-and-string-and-boolean'
-  ) as HTMLElement;
+  const container = $('.container-binding-color') as HTMLElement;
   const PARAMS = {
-    Number: 0.5,
-    Text: 'Hello',
-    Update: true
+    rgb: { r: 255, g: 0, b: 55 },
+    rgba: { r: 0, g: 255, b: 214, a: 0.5 }
   };
   const pane = new Pane({ container });
   pane.element.classList.add('my-pane');
-  pane.addBinding(PARAMS, 'Number');
-  pane.addBinding(PARAMS, 'Text');
-  pane.addBinding(PARAMS, 'Update');
+  pane.addBinding(PARAMS, 'rgb');
+  pane.addBinding(PARAMS, 'rgba');
+  // https://tweakpane.github.io/docs/input-bindings/#color
 </script>
