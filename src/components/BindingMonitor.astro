@@ -1,0 +1,53 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-binding-monitor`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#8</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  const container = $('.container-binding-monitor') as HTMLElement;
+  const PARAMS = {
+    wave: 0,
+    waveGraph: 0,
+    waveBufferSize: 10,
+    time: new Date().toLocaleTimeString()
+  };
+  const pane = new Pane({ container });
+  pane.element.classList.add('my-pane');
+
+  pane.addBinding(PARAMS, 'wave', {
+    readonly: true
+  });
+  pane.addBinding(PARAMS, 'waveGraph', {
+    readonly: true,
+    view: 'graph',
+    min: -100,
+    max: 100
+  });
+  pane.addBinding(PARAMS, 'waveBufferSize', {
+    readonly: true,
+    bufferSize: 10
+  });
+  pane.addBinding(PARAMS, 'time', {
+    readonly: true,
+    interval: 1000
+  });
+
+  function update(t: number) {
+    PARAMS.wave = Math.sin(t / 1000) * 100;
+    PARAMS.waveGraph = Math.sin(t / 1000) * 100;
+    PARAMS.waveBufferSize = Math.sin(t / 1000) * 100;
+    requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+
+  setInterval(() => {
+    PARAMS.time = new Date().toLocaleTimeString();
+  }, 1000);
+</script>
