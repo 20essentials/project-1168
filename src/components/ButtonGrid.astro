@@ -1,0 +1,37 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-button-grid`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#18</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  import * as EssentialsPlugin from '@tweakpane/plugin-essentials';
+  import { ButtonGridApi } from '@tweakpane/plugin-essentials';
+
+  const container = $('.container-button-grid') as HTMLElement;
+  const pane = new Pane({ container });
+  pane.registerPlugin(EssentialsPlugin);
+  pane.element.classList.add('my-pane');
+  const menu = pane.addBlade({
+    view: 'buttongrid',
+    size: [3, 3],
+    cells: (x: number, y: number) => ({
+      title: [
+        ['NW', 'N', 'NE'],
+        ['W', '*', 'E'],
+        ['SW', 'S', 'SE']
+      ][y][x]
+    }),
+    label: 'buttongrid'
+  }) as ButtonGridApi;
+
+  menu.on('click', ev => {
+    console.log(ev);
+  });
+</script>
