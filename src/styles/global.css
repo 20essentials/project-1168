@@ -91,11 +91,16 @@ body::-webkit-scrollbar-thumb {
   font-size: 3vmax;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 .am-section {
   height: 100vh;
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  scroll-snap-align: center;
   place-content: center;
   border-block: 0.1vmax solid #fffa;
 
