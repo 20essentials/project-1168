@@ -1,0 +1,27 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-tab`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#11</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  const container = $('.container-tab') as HTMLElement;
+  const pane = new Pane({ container });
+  pane.element.classList.add('my-pane');
+  const tab = pane.addTab({
+    pages: [{ title: 'Tab 1' }, { title: 'Tab 2' }]
+  });
+
+  const PARAMS = {
+    speed_1: 0,
+    speed_2: 0
+  };
+  tab.pages[0].addBinding(PARAMS, 'speed_1');
+  tab.pages[1].addBinding(PARAMS, 'speed_2');
+</script>
