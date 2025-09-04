@@ -1,5 +1,5 @@
 :root {
-  --gradient: linear-gradient(to bottom, dodgerblue, black);
+  --gradient: linear-gradient(to bottom, dodgerblue, #fff);
 }
 
 @font-face {

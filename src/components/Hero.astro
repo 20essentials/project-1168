@@ -1,3 +1,9 @@
+---
+import { baseUrl } from "@/utils/functions"
+
+ const src = baseUrl('/assets/tweakpane-exercises.png')
+---
+
 <section class="am-hero">
   <div class='scene'>
     <div class='layeredText'>
@@ -29,14 +35,26 @@
         <div class='layer' style='--i: 24;'>TweakPane</div>
       </div>
     </div>
+    <img src={src}  alt="Tweakpane Alternative Logo" class="img">
   </div>
+
 </section>
 <style>
+  .img {
+    position: absolute;
+    bottom: -200% ;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16vmax;
+  }
+
   .am-hero {
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     place-content: center;
+    scroll-snap-align: center;
   }
 
   .scene {
