@@ -1,0 +1,1 @@
+import{$ as a,P as e}from"./tweakpane.DhXjLUNm.js";const i=a(".container-binding-number-and-string-and-boolean"),d={Number:.5,Text:"Hello",Update:!0,randomWord:""},n=new e({container:i});n.element.classList.add("my-pane");n.addBinding(d,"Number");n.addBinding(d,"Text");n.addBinding(d,"Update");n.addBinding(d,"randomWord",{label:"Custom Label"});

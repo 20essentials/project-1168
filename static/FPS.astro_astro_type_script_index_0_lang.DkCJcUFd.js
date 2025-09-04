@@ -1,0 +1,1 @@
+import{$ as s,P as r}from"./tweakpane.DhXjLUNm.js";import{E as i}from"./tweakpane-plugin-essentials.BUSeU_JU.js";const t=s(".container-fps"),e=new r({container:t});e.registerPlugin(i);e.element.classList.add("my-pane");const n=e.addBlade({view:"fpsgraph",label:"fpsgraph",rows:2});function a(){n.begin(),n.end(),requestAnimationFrame(a)}a();

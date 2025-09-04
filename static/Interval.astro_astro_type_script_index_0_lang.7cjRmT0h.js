@@ -1,0 +1,1 @@
+import{$ as a,P as e}from"./tweakpane.DhXjLUNm.js";import{E as i}from"./tweakpane-plugin-essentials.BUSeU_JU.js";const s=a(".container-interval"),n=new e({container:s});n.registerPlugin(i);n.element.classList.add("my-pane");const t={range:{min:16,max:48}};n.addBinding(t,"range",{min:0,max:100,step:1});

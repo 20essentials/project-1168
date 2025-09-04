@@ -1,0 +1,1 @@
+import{$ as t,P as e}from"./tweakpane.DhXjLUNm.js";const o=t(".container-button"),n=new e({container:o});n.element.classList.add("my-pane");const c=n.addButton({title:"Increment",label:"counter"});let a=0;c.on("click",()=>{prompt(`${a+=1}`)});

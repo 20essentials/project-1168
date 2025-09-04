@@ -1,0 +1,1 @@
+import{$ as i,P as a}from"./tweakpane.DhXjLUNm.js";import{E as c}from"./tweakpane-plugin-essentials.BUSeU_JU.js";const o=i(".container-cubic-bezier"),e=new a({container:o});e.registerPlugin(c);e.element.classList.add("my-pane");const r=e.addBlade({view:"cubicbezier",value:[.5,0,.5,1],expanded:!0,label:"cubicbezier",picker:"inline"});r.on("change",n=>{console.log(n)});

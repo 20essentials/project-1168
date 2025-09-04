@@ -1,0 +1,1 @@
+import{$ as s,P as t}from"./tweakpane.DhXjLUNm.js";const d=s(".container-tab"),e=new t({container:d});e.element.classList.add("my-pane");const a=e.addTab({pages:[{title:"Tab 1"},{title:"Tab 2"}]}),n={speed_1:0,speed_2:0};a.pages[0].addBinding(n,"speed_1");a.pages[1].addBinding(n,"speed_2");

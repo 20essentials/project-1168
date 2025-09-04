@@ -1,0 +1,1 @@
+import{$ as o,P as a}from"./tweakpane.DhXjLUNm.js";const r=o(".binding-formatter"),e={peso:0,ProjectNumber:1},n=new a({container:r});n.element.classList.add("my-pane");n.addBinding(e,"peso",{format:t=>t.toFixed(6)});n.addBinding(e,"ProjectNumber",{format:t=>t.toString().padStart(6,"0")});

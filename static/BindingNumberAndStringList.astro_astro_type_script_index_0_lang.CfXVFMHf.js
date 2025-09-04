@@ -1,0 +1,1 @@
+import{$ as t,P as i}from"./tweakpane.DhXjLUNm.js";const a=t(".binding-number-list"),n={quality:0,theme:"dark-theme.json"},e=new i({container:a});e.element.classList.add("my-pane");e.addBinding(n,"quality",{options:{low:0,medium:50,high:100}});e.addBinding(n,"theme",{options:{default:"dark-theme.json",dark:"dark-theme.json",light:"light-theme.json"}});

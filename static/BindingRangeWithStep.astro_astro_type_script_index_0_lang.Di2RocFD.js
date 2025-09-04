@@ -1,0 +1,1 @@
+import{$ as i,P as t}from"./tweakpane.DhXjLUNm.js";const s=i(".binding-range-with-step"),e={kg:.5,items:10},n=new t({container:s});n.element.classList.add("my-pane");n.addBinding(e,"kg",{step:.1});n.addBinding(e,"items",{min:0,max:100,step:10});

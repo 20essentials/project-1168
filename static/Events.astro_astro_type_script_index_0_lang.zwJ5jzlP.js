@@ -1,0 +1,1 @@
+import{$ as t,P as o}from"./tweakpane.DhXjLUNm.js";const i=t(".container-events"),n={amount:50,amountBuffer:50},e=new o({container:i,title:"Events"});e.element.classList.add("my-pane");e.addBinding(n,"amount",{min:1,max:500}).on("change",a=>{n.amountBuffer=a.value});e.addBinding(n,"amountBuffer",{readonly:!0,bufferSize:10});

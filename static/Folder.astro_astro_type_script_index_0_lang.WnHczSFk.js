@@ -1,0 +1,1 @@
+import{$ as a,P as s}from"./tweakpane.DhXjLUNm.js";const t=a(".container-folder"),e={speed:.5,acceleration:.1,randomness:.2},n=new s({container:t,title:"Folders"});n.element.classList.add("my-pane");const o=n.addFolder({title:"Basic"});o.addBinding(e,"speed");const d=n.addFolder({title:"Advanced",expanded:!1});d.addBinding(e,"acceleration");d.addBinding(e,"randomness");
