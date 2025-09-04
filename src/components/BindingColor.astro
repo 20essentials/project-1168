@@ -14,11 +14,21 @@ const containerClassName = `container-binding-color`;
   const container = $('.container-binding-color') as HTMLElement;
   const PARAMS = {
     rgb: { r: 255, g: 0, b: 55 },
-    rgba: { r: 0, g: 255, b: 214, a: 0.5 }
+    rgba: { r: 0, g: 255, b: 214, a: 0.5 },
+    hex: '#0f0',
+    pickerToggle: '#00f',
+    pickerInline: '#f0f',
   };
   const pane = new Pane({ container });
   pane.element.classList.add('my-pane');
   pane.addBinding(PARAMS, 'rgb');
   pane.addBinding(PARAMS, 'rgba');
-  // https://tweakpane.github.io/docs/input-bindings/#color
+  pane.addBinding(PARAMS, 'hex');
+  pane.addBinding(PARAMS, 'pickerToggle', {
+    picker: 'inline'
+  });
+  pane.addBinding(PARAMS, 'pickerInline', {
+    picker: 'inline',
+    expanded: true,
+  });
 </script>
