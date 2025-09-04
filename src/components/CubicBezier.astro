@@ -1,0 +1,33 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-cubic-bezier`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#19</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  import * as EssentialsPlugin from '@tweakpane/plugin-essentials';
+  import { CubicBezierApi } from '@tweakpane/plugin-essentials';
+
+  const container = $('.container-cubic-bezier') as HTMLElement;
+  const pane = new Pane({ container });
+  pane.registerPlugin(EssentialsPlugin);
+  pane.element.classList.add('my-pane');
+  const menu = pane.addBlade({
+    view: 'cubicbezier',
+    value: [0.5, 0, 0.5, 1],
+
+    expanded: true,
+    label: 'cubicbezier',
+    picker: 'inline'
+  }) as CubicBezierApi;
+
+  menu.on('change', ev => {
+    console.log(ev);
+  });
+</script>
