@@ -20,7 +20,9 @@ export default defineConfig({
   // site: 'https://20essentials.github.io/20-projects-with-css/'
 
   //Localhost
-  site: 'http://localhost:4321/',
+  // site: 'http://localhost:4321/',
+  site: 'https://20-exercises-with-tweakpane.vercel.app/',
+  
 
   adapter: vercel()
 });
