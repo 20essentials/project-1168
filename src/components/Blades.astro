@@ -1,0 +1,44 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-blades`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#12</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane, SeparatorBladeApi, SliderBladeApi } from 'tweakpane';
+  const container = $('.container-blades') as HTMLElement;
+  const pane = new Pane({ container, title: 'Blades' });
+  pane.element.classList.add('my-pane');
+  pane.addBlade({
+    view: 'slider',
+    label: 'bladeSlider',
+    min: 0,
+    max: 1,
+    value: 0.5
+  }) as SliderBladeApi;
+  pane.addBlade({
+    view: 'text',
+    label: 'bladeText',
+    parse: (v: any) => String(v),
+    value: 'sketch-01'
+  }) as SliderBladeApi;
+  pane.addBlade({
+    view: 'list',
+    label: 'bladeList',
+    options: [
+      { text: 'loading', value: 'LDG' },
+      { text: 'menu', value: 'MNU' },
+      { text: 'field', value: 'FLD' }
+    ],
+    value: 'LDG'
+  });
+  pane.addBlade({
+    view: 'separator',
+    
+  }) as SeparatorBladeApi;
+</script>
