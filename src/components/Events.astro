@@ -1,0 +1,28 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-events`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#14</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  const container = $('.container-events') as HTMLElement;
+  const PARAMS = {
+    amount: 50,
+    amountBuffer: 50
+  };
+  const pane = new Pane({ container, title: 'Events' });
+  pane.element.classList.add('my-pane');
+  pane.addBinding(PARAMS, 'amount', { min: 1, max: 500 }).on('change', ev => {
+    PARAMS.amountBuffer = ev.value;
+  });
+  pane.addBinding(PARAMS, 'amountBuffer', {
+    readonly: true,
+    bufferSize: 10
+  });
+</script>

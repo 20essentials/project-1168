@@ -17,11 +17,15 @@ const containerClassName = `container-binding-number-and-string-and-boolean`;
   const PARAMS = {
     Number: 0.5,
     Text: 'Hello',
-    Update: true
+    Update: true,
+    randomWord: ''
   };
   const pane = new Pane({ container });
   pane.element.classList.add('my-pane');
   pane.addBinding(PARAMS, 'Number');
   pane.addBinding(PARAMS, 'Text');
   pane.addBinding(PARAMS, 'Update');
+  pane.addBinding(PARAMS, 'randomWord', {
+    label: 'Custom Label'
+  });
 </script>
