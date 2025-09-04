@@ -1,0 +1,42 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-binding-point`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#7</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  const container = $('.container-binding-point') as HTMLElement;
+  const PARAMS = {
+    offset: { x: 50, y: 25 },
+    offsetWithStep: { x: 20, y: 20 },
+    offsetWithMinAndMax: { x: 0, y: 0 },
+    YaxisInverted: { x: 0, y: 0 },
+    offsetPickerInline: { x: 100, y: 100 },
+    X_Y_Z: { x: 0, y: 0, z: 0 }
+  };
+  const pane = new Pane({ container });
+  pane.element.classList.add('my-pane');
+  pane.addBinding(PARAMS, 'offset');
+  pane.addBinding(PARAMS, 'offsetWithStep', {
+    x: { step: 20 },
+    y: { step: 20 }
+  });
+  pane.addBinding(PARAMS, 'offsetWithMinAndMax', {
+    x: { min: -50, max: 50 },
+    y: { min: -50, max: 50 }
+  });
+  pane.addBinding(PARAMS, 'YaxisInverted', {
+    y: { inverted: true }
+  });
+  pane.addBinding(PARAMS, 'offsetPickerInline', {
+    picker: 'inline',
+    expanded: true
+  });
+  pane.addBinding(PARAMS, 'X_Y_Z');
+</script>
