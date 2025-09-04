@@ -1,0 +1,35 @@
+---
+import { getUrlOfTheComponent } from '@/utils/functions';
+const fileAnchor = getUrlOfTheComponent({ theURL: import.meta.url });
+const containerClassName = `container-fps`;
+---
+
+<section class=`am-section ${containerClassName}`>
+  <a class='title-of-section' href={fileAnchor} target='_blank'>#15</a>
+</section>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { Pane } from 'tweakpane';
+  import * as EssentialsPlugin from '@tweakpane/plugin-essentials';
+  import type { FpsGraphBladeApi } from '@tweakpane/plugin-essentials';
+
+  const container = $('.container-fps') as HTMLElement;
+  const pane = new Pane({ container });
+  pane.registerPlugin(EssentialsPlugin);
+  pane.element.classList.add('my-pane');
+
+  const fpsGraph = pane.addBlade({
+    view: 'fpsgraph',
+    label: 'fpsgraph',
+    rows: 2
+  }) as FpsGraphBladeApi;
+
+  function render() {
+    fpsGraph.begin();
+    fpsGraph.end();
+    requestAnimationFrame(render);
+  }
+
+  render();
+</script>
